@@ -1,0 +1,199 @@
+/* ===== Estilo general ===== */
+html {
+    scroll-behavior: smooth; /* Hace que al dar click en el indice baje suavemente */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #0f0f0f;
+    color: #f2f2f2;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* ===== Columna izquierda ===== */
+.left-column {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    position: sticky; /* Hace que el perfil se quede fijo al bajar */
+    top: 20px;
+    height: fit-content;
+}
+
+.profile-photo img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.profile-photo img:hover {
+    transform: scale(1.03);
+}
+
+h1 {
+    color: #86c47c;
+    margin-top: 20px;
+    font-size: 28px;
+}
+
+.presentation {
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.contacto a {
+    color: #e7a35e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contacto a:hover {
+    color: #ffb774;
+}
+
+/* ===== Columna derecha ===== */
+.right-column {
+    background: #141414;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    color: #86c47c;
+    border-left: 5px solid #e7a35e;
+    padding-left: 10px;
+    margin-bottom: 20px;
+    margin-top: 30px; /* Separacion entre secciones */
+}
+
+/* === NUEVO: Estilo del Índice === */
+.indice h3 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #f2f2f2;
+}
+
+.indice ul {
+    display: flex; /* Pone los items en fila */
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.indice ul li {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.indice ul li a {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #2a2a2a;
+    color: #e7a35e;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1px solid #e7a35e;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.indice ul li a:hover {
+    background-color: #e7a35e;
+    color: #141414;
+    transform: translateY(-2px);
+}
+
+/* Estilos de listas normales (Cursos, Aptitudes) */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 8px 0;
+    padding: 10px 15px;
+    background: #1f1f1f;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateX(5px);
+}
+
+/* === NUEVO: Estilo Grid para Profesores y Compañeros === */
+.grid-list {
+    display: grid;
+    /* Esto crea columnas automáticas que miden minimo 200px */
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+}
+
+.grid-list li {
+    text-align: center;
+    background: #222;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.grid-list li:hover {
+    transform: translateY(-5px); /* Efecto de elevación */
+    border-color: #e7a35e; /* Borde naranja al pasar el mouse */
+    box-shadow: 0 5px 15px rgba(231, 163, 94, 0.1);
+}
+
+.grid-list li a {
+    color: #e7a35e;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    height: 100%;
+    display: flex;           /* Centrar vertical y horizontalmente */
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;       /* Altura minima para que se vean uniformes */
+}
+
+.grid-list li a:hover {
+    color: #ffb774;
+}
+
+/* ===== Animación suave general ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===== Diseño responsive ===== */
+@media (max-width: 900px) {
+    .container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .left-column {
+        position: static; /* Quita el efecto pegajoso en celulares */
+    }
+    
+    .grid-list {
+        /* En celulares muy pequeños, 1 sola columna se ve mejor */
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
